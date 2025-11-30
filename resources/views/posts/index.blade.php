@@ -5,6 +5,11 @@
         <div class="space-y-1">
             <h1 class="text-xl sm:text-2xl font-semibold">投稿一覧</h1>
             <p class="text-xs sm:text-sm text-slate-300">最新の投稿をチェックしたり、キーワードで検索できます。</p>
+            @if (auth()->check() && auth()->user()->is_admin)
+                <a href="{{ route('admin.dashboard') }}" class="inline-flex items-center mt-2 rounded-full bg-slate-800 px-3 py-1 text-[11px] text-slate-100 hover:bg-slate-700">
+                    管理画面へ
+                </a>
+            @endif
         </div>
 
         <div class="flex items-center gap-2">
@@ -41,10 +46,10 @@
 
     <div class="space-y-3">
         @forelse ($posts as $post)
-            <article class="flex gap-3 rounded-xl border border-white/5 bg-slate-900/60 p-3 sm:p-4 shadow-sm hover:border-indigo-500/40 transition-colors">
+            <article class="flex items-stretch gap-3 rounded-xl border border-white/5 bg-slate-900/60 p-3 sm:p-4 shadow-sm hover:border-indigo-500/40 transition-colors">
                 @if ($post->image_path)
-                    <div class="shrink-0">
-                        <img src="{{ asset('storage/' . $post->image_path) }}" alt="image" class="h-16 w-16 sm:h-20 sm:w-20 rounded-lg object-cover">
+                    <div class="shrink-0 self-stretch w-32 sm:w-40">
+                        <img src="{{ asset('storage/' . $post->image_path) }}" alt="" class="h-full w-full rounded-lg object-cover">
                     </div>
                 @endif
                 <div class="flex-1 min-w-0">

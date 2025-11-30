@@ -17,6 +17,7 @@ class PostController extends Controller
 
         $query = Post::with(['user'])->withCount(['replies', 'attachments'])
             ->withMax('replies as last_reply_at', 'created_at')
+            ->where('is_hidden', false)
             ->latest();
 
         if ($search) {

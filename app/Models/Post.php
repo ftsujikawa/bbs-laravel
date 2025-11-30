@@ -17,6 +17,11 @@ class Post extends Model
         'user_id',
         'nickname',
         'image_path',
+        'is_hidden',
+    ];
+
+    protected $casts = [
+        'is_hidden' => 'bool',
     ];
 
     public function replies()
