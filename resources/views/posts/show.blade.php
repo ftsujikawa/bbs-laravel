@@ -15,7 +15,7 @@
     @endif
         @if ($post->image_path)
             <div class="shrink-0">
-                <img src="{{ asset('storage/' . $post->image_path) }}" alt="image" class="max-w-full h-auto max-h-96 rounded-xl object-cover">
+                <img src="{{ asset('storage/' . $post->image_path) }}" alt="image" class="h-20 w-20 sm:h-24 sm:w-24 rounded-xl object-cover">
             </div>
         @endif
         <div class="flex-1 min-w-0 space-y-2">
