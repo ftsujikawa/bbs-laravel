@@ -48,7 +48,7 @@
         @forelse ($posts as $post)
             <article class="flex items-stretch gap-3 rounded-xl border border-white/5 bg-slate-900/60 p-3 sm:p-4 shadow-sm hover:border-indigo-500/40 transition-colors">
                 @if ($post->image_path)
-                    <div class="shrink-0 self-stretch w-32 sm:w-40">
+                    <div class="shrink-0 self-stretch w-32 sm:w-40 min-h-24 sm:min-h-32">
                         <img src="{{ asset('storage/' . $post->image_path) }}" alt="" class="h-full w-full rounded-lg object-cover">
                     </div>
                 @endif
